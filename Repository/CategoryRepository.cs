@@ -26,7 +26,7 @@ namespace PokemanReviewApp.Repository
             return _context.Categories.Where(e => e.Id == id).FirstOrDefault();
         }
 
-        public ICollection<Pokemon> GetCategoryByPokemon(int categoryId)
+        public ICollection<Pokemon> GetPokemonByCategory(int categoryId)
         {
             return _context.PokemonCategories.Where(e => e.CategoryId == categoryId).Select(c => c.Pokemon).ToList();
         }

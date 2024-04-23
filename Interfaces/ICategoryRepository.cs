@@ -9,7 +9,7 @@ namespace PokemanReviewApp.Interfaces
         // Get & Read Methods in API
 
         Category GetCategory(int id);
-        ICollection<Pokemon> GetCategoryByPokemon(int categoryId);
+        ICollection<Pokemon> GetPokemonByCategory(int categoryId);
         bool CategoryExists(int id);
     }
 }
