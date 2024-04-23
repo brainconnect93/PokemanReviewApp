@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using PokemanReviewApp.Dto;
 using PokemanReviewApp.Interfaces;
 using PokemanReviewApp.Models;
-using PokemanReviewApp.Repository;
 
 namespace PokemanReviewApp.Controllers
 {
