@@ -13,6 +13,9 @@ namespace PokemanReviewApp.Interfaces
 
         // Post & Create Methods in API
         bool CreateOwner(Owner owner);
+
+        // Put & Update Methods In API
+        bool UpdateOwner(Owner owner);
         bool Save();
     }
 }
