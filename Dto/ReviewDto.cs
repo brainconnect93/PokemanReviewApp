@@ -1,4 +1,4 @@
-﻿namespace PokemanReviewApp.Dto
+﻿ namespace PokemanReviewApp.Dto
 {
     public class ReviewDto
     {
