@@ -12,11 +12,18 @@ namespace PokemanReviewApp.Controllers
     public class PokemonController : Controller
     {
         private readonly IPokemonRepository _pokemonRepository;
+        private readonly IOwnerRepository _ownerRepository;
+        private readonly ICategoryRepository _categoryRepository;
         private readonly IMapper _mapper;
 
-        public PokemonController(IPokemonRepository pokemonRepository, IMapper mapper)
+        public PokemonController(IPokemonRepository pokemonRepository,
+            IOwnerRepository ownerRepository,
+            ICategoryRepository categoryRepository,
+            IMapper mapper)
         {
             _pokemonRepository = pokemonRepository;
+            _ownerRepository = ownerRepository;
+            _categoryRepository = categoryRepository;
             _mapper = mapper;
         }
 
@@ -96,8 +103,39 @@ namespace PokemanReviewApp.Controllers
                 ModelState.AddModelError("", "Something wrong while saving");
                 return StatusCode(500, ModelState);
             }
-
             return Ok("Successfulli added pokemon");
+        }
+
+        [HttpPut("{pokeId}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+
+        public IActionResult UpdatePokemon(int pokeId,
+            [FromQuery]int ownerId, [FromQuery]int catId,
+            [FromBody] PokemonDto updatedPokemon)
+        {
+            if (updatedPokemon == null)
+                return BadRequest(ModelState);
+
+            if (pokeId != updatedPokemon.Id)
+                return BadRequest(ModelState);
+
+            if (!_pokemonRepository.PokemonExists(pokeId))
+                return NotFound();
+
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var pokemonMap = _mapper.Map<Pokemon>(updatedPokemon);
+
+            if (!_pokemonRepository.UpdatePokemon(ownerId, catId, pokemonMap))
+            {
+                ModelState.AddModelError("", "Something went wrong updating pokemon");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok("Succesfully update pokemon");
         }
 
     }

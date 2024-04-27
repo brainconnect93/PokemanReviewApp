@@ -13,6 +13,9 @@ namespace PokemanReviewApp.Interfaces
 
         // Post & Create Methods in API
         bool CreatePokemon(int ownerId, int categoryId, Pokemon pokemon);
+
+        // Post & Create Methods in API
+        bool UpdatePokemon(int ownerId, int categoryId, Pokemon pokemon);
         bool Save();
     }
 }

@@ -13,6 +13,9 @@ namespace PokemanReviewApp.Interfaces
 
         // Post & Create Methods in API.
         bool CreateCountry(Country country);
+
+        // Put & Update Methods in API.
+        bool UpdateCountry(Country country);
         bool Save();
     }
 }
