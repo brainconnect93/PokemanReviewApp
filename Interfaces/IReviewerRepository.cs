@@ -15,6 +15,9 @@ namespace PokemanReviewApp.Interfaces
 
         // Put & Update Method In API
         bool UpdateReviewer(Reviewer reviewer);
+
+        // Delete Method In API
+        bool DeleteReviewer(Reviewer reviewer);
         bool Save();
         
     }
