@@ -12,6 +12,9 @@ namespace PokemanReviewApp.Interfaces
 
         // Post & Create Method in API
         bool CreateReviewer(Reviewer reviewer);
+
+        // Put & Update Method In API
+        bool UpdateReviewer(Reviewer reviewer);
         bool Save();
         
     }
