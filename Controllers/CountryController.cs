@@ -137,10 +137,10 @@ namespace PokemanReviewApp.Controllers
                 return NotFound();
             }
 
+            var countryToDelete = _countryRepository.GetCountry(countryId);
+
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-
-            var countryToDelete = _countryRepository.GetCountry(countryId);
 
             if (!_countryRepository.DeleteCountry(countryToDelete))
             {

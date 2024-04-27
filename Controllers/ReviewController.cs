@@ -134,7 +134,6 @@ namespace PokemanReviewApp.Controllers
             }
 
             return Ok("Successfully update review");
-
         }
     }
 }
