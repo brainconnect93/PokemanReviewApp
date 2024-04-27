@@ -96,7 +96,7 @@ namespace PokemanReviewApp.Controllers
             return Ok("Successfully Created Reviewer");           
         }
 
-        [HttpPut]
+        [HttpPut("{reviewerId}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
