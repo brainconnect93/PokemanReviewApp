@@ -16,6 +16,9 @@ namespace PokemanReviewApp.Interfaces
 
         // Post & Create Methods in API
         bool UpdatePokemon(int ownerId, int categoryId, Pokemon pokemon);
+
+        // Delete Methods in API
+        bool DeletePokemon(Pokemon pokemon);
         bool Save();
     }
 }

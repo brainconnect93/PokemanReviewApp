@@ -13,8 +13,13 @@ namespace PokemanReviewApp.Interfaces
 
         // Post & Create Methods in API
         bool CreateCategory(Category category);
+
         // Put & Update Methods in API
         bool UpdateCategory(Category category);
+
+        // Delete Methods in API
+        bool DeleteCategory(Category category);
+
         bool Save();
     }
 }
